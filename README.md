@@ -1,42 +1,42 @@
-icsFormatter
+ng-icsFormatter
 ============
 
-My fork of the original ics.js
+Fork of icsFormatter which is a fork of ics 
+icsFormatter -- https://github.com/matthiasanderer/icsFormatter
+ics -- https://github.com/nwcell/ics.js
 
-I took out the FileSaver.js and Blob.js parts as it better fit my needs.
-Please have a look at the original repository!! -- https://github.com/nwcell/ics.js
-(At least thats where I got my fork)
+Created an angular factory from the original icsFormatter.
 
-PLEASE NOTE: I only tested this simplification with single events and on Chrome/Firefox !!
+Installation:
+---------
+
+Include library: <script src='FOLDER LOCATION/ng-icsFormatter/ng-icsFormatter.js'></script>
+
+Add module to app: 'IcsFormatter'
+
+Add module to controller: angular.module('app').controller('Controller', ['$scope', 'IcsFormatter',
+							function($scope, IcsFormatter) {}
 
 
-My changes where applied to the download() function - have a look yourself :-)
-
-My suggested use is to have a onclick or controller/service function (in case you use Angular or stuff) that builds your nice calendar data:
 
 Example:
 ---------
-var buildICSEntry = function( javascriptExampleDateObject ){
+	$scope.addToCalendar = function() {
 
-    	var calEntry = icsFormatter();
+	    var title = 'Event Title';
+	    var place = 'Event location';
+	    var begin = new Date();
+	    var end = new Date().getTime() + (4 * 60 * 60);
+	
+	    var description = title + '\n' + begin + '\n' + place + '\nMessage body';
+	
+	    IcsFormatter.addEvent(title,description, place, begin, end);
+	    IcsFormatter.download('event');
+	};
 
-    	var title = 'sometitlestring';
-    	var place = 'our secret meeting place';
-    	var begin = new Date(javascriptExampleDateObject);
-    	var end = new Date(Beginn.getTime() + 30*60000);
-
-    	var description = 'A very long and boring description of what is the agenda of this super exclusiv pow-wow';
-
-		calEntry.addEvent(title,description, place, begin.toUTCString(), begin.toUTCString());
-		calEntry.download('ourSecretMeeting');
- }
-
-
-/* Original Readme End */
 
 Credits
 ------------------
-* [Travis Krause](https://github.com/nwcell): Me
-* [Kyle Hornberg](https://github.com/khornberg): Added multi event functionality and made everything a package firendly
-
-/* Original Readme End */
+* [Jose Weeks](https://github.com/jtweeks): Me
+* [Matthias](https://github.com/matthiasanderer): icsFormatter
+* [Travis Krause](https://github.com/nwcell): ics

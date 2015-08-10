@@ -1,21 +1,24 @@
-
-var icsFormatter = function() {
-    'use strict';
-
-    if (navigator.userAgent.indexOf('MSIE') > -1 && navigator.userAgent.indexOf('MSIE 10') == -1) {
-        console.log('Unsupported Browser');
-        return;
-    }
-
-    var SEPARATOR = (navigator.appVersion.indexOf('Win') !== -1) ? '\r\n' : '\n';
-    var calendarEvents = [];
-    var calendarStart = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0'
-    ].join(SEPARATOR);
-    var calendarEnd = SEPARATOR + 'END:VCALENDAR';
-
-    return {
+if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.exports === exports) {
+  module.exports = 'IcsFormatter';
+}
+(function () {
+  'use strict';
+  /*global angular: false, Highcharts: false */
+  angular.module('IcsFormatter', []).factory('IcsFormatter', function() {
+	  	if (navigator.userAgent.indexOf('MSIE') > -1 && navigator.userAgent.indexOf('MSIE 10') == -1) {
+	        console.log('Unsupported Browser');
+	        return;
+	    }
+	
+	    var SEPARATOR = (navigator.appVersion.indexOf('Win') !== -1) ? '\r\n' : '\n';
+	    var calendarEvents = [];
+	    var calendarStart = [
+	        'BEGIN:VCALENDAR',
+	        'VERSION:2.0'
+	    ].join(SEPARATOR);
+	    var calendarEnd = SEPARATOR + 'END:VCALENDAR';
+	    
+	    return {
         /**
          * Returns events array
          * @return {array} Events
@@ -113,4 +116,5 @@ var icsFormatter = function() {
             window.open( "data:text/calendar;charset=utf8," + escape(calendar));
         }
     };
-};
+  });
+}());
