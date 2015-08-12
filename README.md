@@ -10,13 +10,11 @@ Created an angular factory from the original icsFormatter.
 Installation:
 ---------
 
-Include library: <script src='FOLDER LOCATION/ng-icsFormatter/ng-icsFormatter.js'></script>
+bower install ng-icsFormatter
+
+Include library: /ng-icsFormatter/ng-icsFormatter.js
 
 Add module to app: 'IcsFormatter'
-
-Add module to controller: angular.module('app').controller('Controller', ['$scope', 'IcsFormatter',
-							function($scope, IcsFormatter) {}
-
 
 
 Example:

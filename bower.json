@@ -1,0 +1,30 @@
+{
+  "name": "ng-icsFormatter",
+  "main": "ng-icsFormatter.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jtweeks/icsFormatter",
+  "authors": [
+    "Jose Weeks"
+  ],
+  "description": "Angular wrapper for icsFormatter",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "ics",
+    "icsFormatter",
+    "iCalendar",
+    "calendar",
+    "angular",
+    "outlook"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
